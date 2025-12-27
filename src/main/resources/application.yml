@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: core-ledger
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:springdb}
+    username: ${DB_USER:springuser}
+    password: ${DB_PASSWORD:TheMostSecurePassword}
+    driver-class-name: org.postgresql.Driver
+
+    hikari:
+      maximum-pool-size: ${DB_POOL_MAX:10}
+      minimum-idle: ${DB_POOL_MIN_IDLE:2}
+      connection-timeout: ${DB_CONN_TIMEOUT_MS:2000}
+      validation-timeout: ${DB_VALIDATION_TIMEOUT_MS:1000}
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    validate-on-migrate: true
+    out-of-order: false
+
+  logging:
+    level:
+      org.flywaydb: DEBUG
+server:
+  port: ${SERVER_PORT:8080}
