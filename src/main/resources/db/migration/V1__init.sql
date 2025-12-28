@@ -1,3 +1,6 @@
+-- THis was just for smoke test of the migration system and initial schema setup. V2 will have real schema.
+
+
 -- Keep schema explicit (avoid public chaos)
 CREATE SCHEMA IF NOT EXISTS ledger;
 
